@@ -27,8 +27,8 @@ def get_currancy_exchange_rate(date: str, currency_base: str,
 
                 else:
                     return f'Error: bank as {bank} not found'
-            else:
-                return f'Error: exchange rate {currency_base} to {currency_exchange} not found'
+
+        return f'Error: exchange rate {currency_base} to {currency_exchange} not found'
 
     else:
         f'Api error {response.status_code}: {json.get("errorDescription")}'
