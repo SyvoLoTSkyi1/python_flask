@@ -18,3 +18,8 @@ def filtered_customers():
 @app.route('/sql_repeat_customers')
 def repeat_customers_sql():
     return get_repeat_customers_by_sql()
+
+
+@app.route('/py_repeat_customers')
+def repeat_customers_py():
+    return get_repeat_customers_by_python()
