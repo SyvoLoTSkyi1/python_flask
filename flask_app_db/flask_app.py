@@ -23,3 +23,9 @@ def repeat_customers_sql():
 @app.route('/py_repeat_customers')
 def repeat_customers_py():
     return get_repeat_customers_by_python()
+
+
+@app.route('/sql_get_profit')
+def get_profit_sql():
+    return get_profit_by_sql()
+
