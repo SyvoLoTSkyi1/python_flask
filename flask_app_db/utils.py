@@ -56,3 +56,16 @@ def get_repeat_customers_by_python() -> List:
         repeat_customers.update({i: repeat})
 
     return list(repeat_customers.items())
+
+
+def get_profit_by_sql() -> List:
+    '''
+    Returns total amount orders. Using SQL
+    :return: total amount of orders
+    '''
+    db_path = os.path.join(os.getcwd(), 'chinook.db')
+    query_sql = '''
+        SELECT sum(UnitPrice*Quantity)
+          FROM invoice_items;
+    '''
+    return execute_query(query_sql, db_path)
