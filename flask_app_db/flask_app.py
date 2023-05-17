@@ -13,3 +13,8 @@ def filtered_customers():
     state = request.args.get('state', default=None)
     result = get_filtered_customers(city, state)
     return result
+
+
+@app.route('/sql_repeat_customers')
+def repeat_customers_sql():
+    return get_repeat_customers_by_sql()
