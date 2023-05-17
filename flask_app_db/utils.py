@@ -69,3 +69,19 @@ def get_profit_by_sql() -> List:
           FROM invoice_items;
     '''
     return execute_query(query_sql, db_path)
+
+
+def get_profit_by_python() -> List:
+    '''
+    Returns total amount orders. Using Python
+    :return: total amount orders
+    '''
+    query_sql = '''
+        SELECT UnitPrice, Quantity
+          FROM invoice_items;
+    '''
+    db_path = os.path.join(os.getcwd(), 'chinook.db')
+    unitprice = sum([i[0] for i in execute_query(query_sql, db_path)])
+    quantity = sum([i[1] for i in execute_query(query_sql, db_path)])
+    return unitprice * quantity
+
