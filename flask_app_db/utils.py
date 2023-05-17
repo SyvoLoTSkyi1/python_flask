@@ -38,3 +38,21 @@ def get_repeat_customers_by_sql() -> List:
           HAVING count(FirstName) > 0;
     '''
     return execute_query(query_sql, db_path)
+
+
+def get_repeat_customers_by_python() -> List:
+    '''
+    Returns first name and one's count repeating. Using Python
+    :return: first name and count repeating
+    '''
+    query_sql = '''
+        SELECT FirstName
+          FROM customers;
+    '''
+    db_path = os.path.join(os.getcwd(), 'chinook.db')
+    repeat_customers = {}
+    for i in execute_query(query_sql, db_path):
+        repeat = execute_query(query_sql, db_path).count(i)
+        repeat_customers.update({i: repeat})
+
+    return list(repeat_customers.items())
