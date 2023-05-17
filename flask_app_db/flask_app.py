@@ -29,3 +29,7 @@ def repeat_customers_py():
 def get_profit_sql():
     return get_profit_by_sql()
 
+
+@app.route('/py_get_profit')
+def get_profit_py():
+    return get_profit_by_python()
